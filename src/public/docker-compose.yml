@@ -1,0 +1,38 @@
+#lutz
+version: "3"
+services: 
+  db:
+    restart: always
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    container_name: postgres_docker
+    environment:
+      POSTGRES_PASSWORD: "postgres"
+    ports:
+         - 5432:5432/tcp
+    volumes:
+    - db-data:/var/lib/postgresql/data
+
+    networks:
+      - postgres-compose-network
+  
+  pgadmin-compose:
+    image: dpage/pgadmin4
+    environment:
+      PGADMIN_DEFAULT_EMAIL: $pgadmin_email
+      PGADMIN_DEFAULT_PASSWORD: "postgres"
+    ports:
+      - "3333:80"
+    depends_on:
+      - db
+    networks:
+      - postgres-compose-network
+
+networks: 
+  postgres-compose-network:
+    driver: bridge
+
+volumes:
+  db-data:
+    driver: local
