@@ -1,6 +1,8 @@
 ### Script que sobe um banco postgres com apenas um comando + um arquivo de backup
 
-#### .sh roda o .py
-#### .py pede as informações e coloca elas no Dockerfile/docker-compose
-#### .sh roda o docker-compose para subir o container
-#### Dockerfile roda um comando que sobe o banco a partir do backup
+#### Utilização:
+Coloque o seu arquivo de backup dentro da pasta /public/
+Rode o seguinte comando dentro da pasta root do projeto:
+`python3 main.py -f backup_file -d dbname`
+Ajuda com a inicialização:
+`python3 main.py -h`
