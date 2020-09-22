@@ -1,4 +1,6 @@
-import shutil, os, re, sys, getopt
+import os, sys, getopt
+from shutil import copytree
+from time import sleep
 
 def get_args(argv):
     help_text = "Usage: main.py -d dbname -f filename [-u, --user][-c, --container]\nFor more options, try running config.py"
@@ -63,7 +65,7 @@ def main():
     TAGS['host_dir'] = HOST_DIR
 
     # Cria a pasta com as cópias dos arquivos
-    shutil.copytree(BASE_DIR, HOST_DIR)
+    copytree(BASE_DIR, HOST_DIR)
     os.mkdir(os.path.join(HOST_DIR, 'volumes'))
 
     # Reescreve as tags
@@ -72,7 +74,10 @@ def main():
     # Roda o container
     os.chdir(TAGS['host_dir'])
     os.system(f"docker-compose up -d")
-    # os.system(f"docker exec -it {TAGS['container_name']} psql -d {TAGS['dbname']}")
+    sleep(10)
+    os.system(f"docker exec -it {TAGS['container_name']} createdb {TAGS['dbname']}")
+    os.system(f"docker exec -it {TAGS['container_name']} pg_restore -d {TAGS['dbname']} {TAGS['filename']}")
+    os.system(f"docker exec -it {TAGS['container_name']} psql -d {TAGS['dbname']}")
 
 TAGS = {
     'container_name': 'postgres_container',
