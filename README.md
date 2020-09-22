@@ -1,6 +1,6 @@
-<h6><h2>Container com postgres em um comando</h2>(e alguns comandos)</h6>
+### Container com postgres em um comando(e alguns comandos)
 
-## Comandos:
+### Comandos:
 
 **Iniciando o script:**
 
@@ -15,10 +15,10 @@
 ---
 
 ## Acessando PgAdmin:
-<h6>O container do PgAdmin está comentado por padrão em public/docker-compose.yml</h6>
-<h6>Você deve descomentar aquele bloco e rodar o script novamente.</h6>
+<h5>O container do PgAdmin está comentado por padrão em public/docker-compose.yml</h5>
+<h5>Você deve descomentar aquele bloco e rodar o script novamente.</h5>
 
-*<h4>Esses valores podem ser alterados dentro do arquivo docker-compose</h4>*
+*<h6>Esses valores podem ser alterados dentro do arquivo docker-compose</h6>*
 
 #### 1. Inspecione o container do PgAdmin e encontre o IPAddress e a porta
 #### 2. Conecte-se no ip:porta para acessar a página de login do PgAdmin
