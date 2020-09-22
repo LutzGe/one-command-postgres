@@ -1,5 +1,6 @@
-# Postgres em um comando 
-(e algumas flags)
+<h2>Postgres em um comando</h2>
+<h6>(e algumas flags)</h6>
+
 
 ## Utilização:
 
