@@ -9,8 +9,8 @@
 `$ python3 main.py -f backup_file -d dbname`
 
 **Acessando o PostgreSQL pelo terminal:**
-<h5>` sudo `está sendo usando nesse contexto por que por padrão ele não vem com as permissões necessárias.</h5>
-`$ sudo docker exec -it postgres_docker psql -d dbname`
+<h5> ` sudo ` está sendo usando nesse contexto por que por padrão ele não vem com as permissões necessárias.</h5>
+` $ sudo docker exec -it postgres_container psql -d dbname `
 
 ---
 
@@ -24,7 +24,7 @@
 #### 2. Conecte-se no ip:porta para acessar a página de login do PgAdmin
 
 *As credenciais serão mostradas no terminal ao término do script*
-*[Work in progress] Podem ser alteradas rodando o script `config.py`*
+*[Work in progress] Podem ser alteradas rodando o script `config.py` .*
 
 ## Créditos:
 
